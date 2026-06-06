@@ -57,6 +57,7 @@ bin/Debug/*
 *jpg
 *jpeg
 *txt
+*json
 dist/
 build/
 
