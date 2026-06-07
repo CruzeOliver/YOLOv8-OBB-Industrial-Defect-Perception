@@ -1,0 +1,18 @@
+# insulator_obb.yaml
+# 工业高压线绝缘子 OBB 旋转检测数据集配置文件
+
+# 1. 数据集根路径（请替换为你电脑上的实际输出路径 OUTPUT_ROOT）
+path: D:/code/python/YOLOv8-OBB-Industrial-Defect-Perception/dataset_root
+
+# 2. 训练集和验证集的相对路径（基于上面的 path）
+train: train/images
+val: val/images
+
+# 3. 目标分类定义
+nc: 4  # 类别总数 (Number of Classes)
+
+names:
+  0: healthy_asset      # 完全健康的单片或整串绝缘子
+  1: defective_string   # 带有缺陷的整串绝缘子大主体
+  2: broken_disc        # 发生破损缺陷的绝缘子单片
+  3: flashover_disc     # 发生闪络烧伤缺陷的绝缘子单片
