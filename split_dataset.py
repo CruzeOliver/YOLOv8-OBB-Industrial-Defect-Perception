@@ -39,9 +39,9 @@ def copy_file_group(label_list, split_name):
 
     print(f"✅ 完成 【{split_name}】 集划分，共同步复制 {copied_count} 组图片与标签文件。")
 
-def split_data(train_ratio=0.8):
+def split_data(train_ratio=0.7, predict_ratio=0.1):
     # 1. 创建标准的YOLO目标检测目录架构
-    for split in ['train', 'val']:
+    for split in ['train', 'val', 'predict']:
         os.makedirs(os.path.join(OUTPUT_ROOT, split, 'images'), exist_ok=True)
         os.makedirs(os.path.join(OUTPUT_ROOT, split, 'labels'), exist_ok=True)
 
@@ -52,17 +52,25 @@ def split_data(train_ratio=0.8):
     random.seed(42)  # 固定随机种子，确保可复现性
     random.shuffle(all_labels)
 
-    # 3. 计算切分节点
-    split_idx = int(len(all_labels) * train_ratio)
-    train_labels = all_labels[:split_idx]
-    val_labels = all_labels[split_idx:]
+    # 3. 计算切分节点：先预留 predict，剩余再按 train_ratio 划分
+    total_count = len(all_labels)
+    predict_count = max(1, int(total_count * predict_ratio))  # 至少保留 1 组
+    remaining_count = total_count - predict_count
+    train_count = int(remaining_count * train_ratio)
 
-    print(f"📊 资产盘点: 发现有效标注样本 {len(all_labels)} 组。")
-    print(f"⏳ 正在按照 {train_ratio*100}% : {(1-train_ratio)*100}% 分配数据...")
+    predict_labels = all_labels[:predict_count]
+    remaining_labels = all_labels[predict_count:]
+    train_labels = remaining_labels[:train_count]
+    val_labels = remaining_labels[train_count:]
+
+    print(f"📊 资产盘点: 发现有效标注样本 {total_count} 组。")
+    print(f"⏳ 正在分配: predict {predict_ratio*100}% ({len(predict_labels)}组) | "
+          f"train/val 按照 {train_ratio*100}%:{(1-train_ratio)*100}% 分配剩余 {remaining_count} 组...")
 
     # 执行复制
     copy_file_group(train_labels, 'train')
     copy_file_group(val_labels, 'val')
+    copy_file_group(predict_labels, 'predict')
     print(f"\n🏁 数据集构建成功！标准的YOLO架构已落盘至: {OUTPUT_ROOT}")
 
 if __name__ == "__main__":
