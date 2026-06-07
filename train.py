@@ -8,8 +8,8 @@ from ultralytics import YOLO
 # ==================== 【全局核心配置】 ====================
 YAML_PATH = r"D:\code\python\YOLOv8-OBB-Industrial-Defect-Perception\insulator_obb.yaml"
 MODEL_TYPE = "yolov8n-obb.pt"  # 首次运行会自动下载官方预训练权重
-EPOCHS = 50
-BATCH_SIZE = 8
+EPOCHS = 100
+BATCH_SIZE = 32
 # =========================================================
 
 def run_sanity_check():

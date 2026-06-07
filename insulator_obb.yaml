@@ -7,6 +7,7 @@ path: D:/code/python/YOLOv8-OBB-Industrial-Defect-Perception/dataset_root
 # 2. 训练集和验证集的相对路径（基于上面的 path）
 train: train/images
 val: val/images
+test: predict/images
 
 # 3. 目标分类定义
 nc: 4  # 类别总数 (Number of Classes)
