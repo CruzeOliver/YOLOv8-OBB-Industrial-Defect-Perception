@@ -3,9 +3,9 @@ import random
 import shutil
 
 # ==================== 【用户配置区域】 ====================
-IMAGE_SRC = r"D:\code\python\YOLOv8-OBB-Industrial-Defect-Perception\dataset_root\root\Images"         # 原版JPG图片文件夹
-LABEL_SRC = r"D:\code\python\YOLOv8-OBB-Industrial-Defect-Perception\dataset_root\root\YOLOtxt"     # TXT标签文件夹
-OUTPUT_ROOT = r"D:\code\python\YOLOv8-OBB-Industrial-Defect-Perception\dataset_root"     # 划分后标准YOLO数据集的存放总根目录
+IMAGE_SRC = r"D:\code\python\YOLOv8-OBB-Industrial-Defect-Perception\角反识别项目\Data\images"         # 原版JPG图片文件夹
+LABEL_SRC = r"D:\code\python\YOLOv8-OBB-Industrial-Defect-Perception\角反识别项目\Data\txts"     # TXT标签文件夹
+OUTPUT_ROOT = r"D:\code\python\YOLOv8-OBB-Industrial-Defect-Perception\角反识别项目\root"     # 划分后标准YOLO数据集的存放总根目录
 # =========================================================
 
 def copy_file_group(label_list, split_name):
