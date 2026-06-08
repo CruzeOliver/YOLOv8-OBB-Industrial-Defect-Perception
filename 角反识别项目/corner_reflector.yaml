@@ -1,0 +1,8 @@
+path: D:\code\python\YOLOv8-OBB-Industrial-Defect-Perception\角反识别项目\root
+train: train/images
+val: val/images
+test: test/images
+
+nc: 1
+names:
+  0: corner_reflector
