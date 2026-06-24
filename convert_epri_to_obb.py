@@ -3,10 +3,10 @@ import json
 import cv2
 
 # ==================== 【用户配置区域】 ====================
-JSON_PATH = r"D:\code\python\YOLO_vision\IEEEdata\Train\labels_v1.2.json"        # EPRI的JSON标签文件路径
-IMAGE_DIR = r"D:\code\python\YOLO_vision\IEEEdata\Train\Images"            # 存放JPG图片的文件夹路径
-OUTPUT_DIR = r"D:\code\python\YOLO_vision\IEEEdata\Train\YOLOtxt"      # 转换后TXT标签的输出路径
-OUTPUT_VIS_DIR = r"D:\code\python\YOLO_vision\IEEEdata\Train\visual_check" # 画好框的图片另存为路径
+JSON_PATH = r"D:\code\python\YOLO_train_data\IEEEdata\Train\labels_v1.2.json"        # EPRI的JSON标签文件路径
+IMAGE_DIR = r"D:\code\python\YOLO_train_data\IEEEdata\Train\Images"            # 存放JPG图片的文件夹路径
+OUTPUT_DIR = r"D:\code\python\YOLO_train_data\IEEEdata\Train\YOLOtxt"      # 转换后TXT标签的输出路径
+OUTPUT_VIS_DIR = r"D:\code\python\YOLO_train_data\IEEEdata\Train\visual_check" # 画好框的图片另存为路径
 # =========================================================
 
 # 定义4个类别的名称与对应的画框颜色 (OpenCV中颜色顺序为 BGR)
@@ -18,7 +18,7 @@ CLASS_INFO = {
 }
 
 def convert_bbox_to_obb(bbox, img_w, img_h):
-    """将 [X, Y, W, H] 转换为 YOLOv8-OBB 规范的 4个顺时针顶点归一化坐标"""
+    """将 [X, Y, W, H] 转换为 YOLOv8-OBB 规范的 4个顺时针   顶点归一化坐标"""
     x, y, w, h = bbox
     x1, y1 = x, y
     x2, y2 = x + w, y

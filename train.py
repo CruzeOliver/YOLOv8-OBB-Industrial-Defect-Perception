@@ -6,7 +6,7 @@ import torch
 from ultralytics import YOLO
 
 # ==================== 【全局核心配置】 ====================
-YAML_PATH = r"D:\code\python\YOLOv8-OBB-Industrial-Defect-Perception\角反识别项目\corner_reflector.yaml"
+YAML_PATH = r"D:\code\python\YOLOv8-OBB-Industrial-Defect-Perception\insulator_obb.yaml"
 MODEL_TYPE = "yolov8n-obb.pt"
 EPOCHS = 100
 BATCH_SIZE = 8

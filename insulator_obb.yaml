@@ -2,7 +2,7 @@
 # 工业高压线绝缘子 OBB 旋转检测数据集配置文件
 
 # 1. 数据集根路径（请替换为你电脑上的实际输出路径 OUTPUT_ROOT）
-path: D:/code/python/YOLOv8-OBB-Industrial-Defect-Perception/dataset_root
+path: D:/code/python/YOLO_train_data/dataset_root
 
 # 2. 训练集和验证集的相对路径（基于上面的 path）
 train: train/images
