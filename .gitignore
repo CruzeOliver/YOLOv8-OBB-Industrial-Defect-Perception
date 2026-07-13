@@ -58,6 +58,8 @@ bin/Debug/*
 *jpeg
 *txt
 *json
+*cache
+*pt
 dist/
 build/
 runs/
